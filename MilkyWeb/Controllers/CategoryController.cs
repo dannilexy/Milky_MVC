@@ -18,9 +18,8 @@ namespace MilkyWeb.Controllers
             return View(categoryList);
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            
             return View();
         }
 
@@ -31,12 +30,67 @@ namespace MilkyWeb.Controllers
             {
                 ModelState.AddModelError("name", "The Display Order Cannot Exactly match the name");
             }
-            if (!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return View();
             }
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
+            TempData["success"] = "Category Created Successfully";
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound();
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Category category)
+        {
+            if (category.Name == category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("name", "The Display Order Cannot Exactly match the name");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+            TempData["success"] = "Category Updated Successfully";
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+
+            var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound();
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Category category)
+        {
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+            TempData["success"] = "Category Deleted Successfully";
             return RedirectToAction(nameof(Index));
         }
     }
+
+
 }
