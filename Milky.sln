@@ -5,7 +5,13 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkyWeb", "MilkyWeb\MilkyWeb.csproj", "{10BE84EF-21A4-4B88-8202-B2322A7DAABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkyRazor", "MilkyRazor\MilkyRazor.csproj", "{AB213A71-0113-45AA-A3B3-812E875A926A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkyRazor", "MilkyRazor\MilkyRazor.csproj", "{AB213A71-0113-45AA-A3B3-812E875A926A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Milky.DataAccess", "Milky.DataAccess\Milky.DataAccess.csproj", "{628797C2-084E-496A-A8EC-4AF666AEB1CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Milky.Models", "Milky.Models\Milky.Models.csproj", "{55169F6D-1D9B-406B-BC0F-B5B753E9C219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Milky.Utility", "Milky.Utility\Milky.Utility.csproj", "{0AFED76F-23A6-4B94-978A-C656D1F97CE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{AB213A71-0113-45AA-A3B3-812E875A926A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB213A71-0113-45AA-A3B3-812E875A926A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB213A71-0113-45AA-A3B3-812E875A926A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628797C2-084E-496A-A8EC-4AF666AEB1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628797C2-084E-496A-A8EC-4AF666AEB1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628797C2-084E-496A-A8EC-4AF666AEB1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628797C2-084E-496A-A8EC-4AF666AEB1CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55169F6D-1D9B-406B-BC0F-B5B753E9C219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55169F6D-1D9B-406B-BC0F-B5B753E9C219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55169F6D-1D9B-406B-BC0F-B5B753E9C219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55169F6D-1D9B-406B-BC0F-B5B753E9C219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFED76F-23A6-4B94-978A-C656D1F97CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFED76F-23A6-4B94-978A-C656D1F97CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFED76F-23A6-4B94-978A-C656D1F97CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFED76F-23A6-4B94-978A-C656D1F97CE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

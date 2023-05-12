@@ -1,0 +1,44 @@
+﻿@model List< Milky.Models.Models.Product>
+<div class="container">
+    <div class="row pt-4 pb-2">
+        <div class="col-6">
+            <h1>Product List</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary"> <i class="bi bi-plus-square-fill"></i> Create New Product</a>
+        </div>
+    </div>
+</div>
+
+<div class="row pb-5">
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model.OrderBy(x => x.Id))
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.ISBN</td>
+                        <td>@item.Author</td>
+                        <td>$@item.Price</td>
+                        <td>
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="text-primary"><i class="bi bi-pencil-square"></i></a>
+                            <a asp-controller="Product" asp-action="Delete" class=" text-danger" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
