@@ -27,7 +27,7 @@ namespace MilkyWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Category category)
+        public IActionResult Create(Category category)
         {
             if (category.Name == category.DisplayOrder.ToString())
             {
@@ -43,7 +43,7 @@ namespace MilkyWeb.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
                 return NotFound();
@@ -56,7 +56,7 @@ namespace MilkyWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Category category)
+        public IActionResult Edit(Category category)
         {
             if (category.Name == category.DisplayOrder.ToString())
             {
@@ -73,7 +73,7 @@ namespace MilkyWeb.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
                 return NotFound();
@@ -86,7 +86,7 @@ namespace MilkyWeb.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Category category)
+        public IActionResult Delete(Category category)
         {
             _unitOfWork.Category.Delete(category);
             _unitOfWork.Commit();

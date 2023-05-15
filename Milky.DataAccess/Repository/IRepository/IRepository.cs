@@ -9,8 +9,8 @@ namespace Milky.DataAccess.Repository
 {
     public interface IRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T GetFirstOrDefault(Expression<Func<T, bool>> expression);
+        IEnumerable<T> GetAll(string? include = null);
+        T GetFirstOrDefault(Expression<Func<T, bool>> expression, string? include = null);
         void Add(T entity);
         void Delete(T entity);
         void DeleteRange(IEnumerable<T> entity);

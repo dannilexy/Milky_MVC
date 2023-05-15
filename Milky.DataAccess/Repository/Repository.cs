@@ -34,15 +34,29 @@ namespace Milky.DataAccess.Repository
             dbSet.RemoveRange(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var item in includeProperties.Split( new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> expression)
+        public T GetFirstOrDefault(Expression<Func<T, bool>> expression, string? includeProperties = null)
         {
            IQueryable<T> query = dbSet.Where(expression);
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var item in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
             return query.FirstOrDefault();
         }
     }
