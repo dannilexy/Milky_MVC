@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Milky.DataAccess\Milky.DataAccess.csproj" />
     <ProjectReference Include="..\Milky.Models\Milky.Models.csproj" />
+    <ProjectReference Include="..\Milky.Utility\Milky.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

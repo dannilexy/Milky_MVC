@@ -4,6 +4,8 @@ using Milky.DataAccess.Repository.IRepository;
 using Milky.DataAcess.Data;
 using Microsoft.AspNetCore.Identity;
 using Milky.Models.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Milky.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +15,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddRazorPages();
 
 //builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSendere>();
 
 var app = builder.Build();
 
